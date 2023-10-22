@@ -33,10 +33,10 @@ public class Main {
         System.out.println(beautifyJson(strBuilder.toString()));
 
         //json file directory to be generated
-//        String writeDirectory = "D:\\Spring Boot\\test-file\\";
+        String writeDirectory = "D:\\Spring Boot\\test-file\\";
 
         //write file
-//        writeJsonToFile(strBuilder.toString(),  writeDirectory + "case_" + System.currentTimeMillis() + (new File(writeDirectory).listFiles().length + 1) + ".json");
+        writeJsonToFile(strBuilder.toString(),  writeDirectory + "case_" + System.currentTimeMillis() + (new File(writeDirectory).listFiles().length + 1) + ".json");
     }
 
     private String readDirectory(String directoryPath){
@@ -136,10 +136,10 @@ public class Main {
             else if(splitKeyPairs[0].contains("txnDateTime")){
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
                 String formattedDate = sdf.format(new Date());
-                splitKeyPairs[1] = formattedDate+ ",";
+                splitKeyPairs[1] = "\""+formattedDate+ "\",";
             }
             else if(splitKeyPairs[0].contains("txnId")){
-                splitKeyPairs[1] = randomGenerateValue() + ",";
+                splitKeyPairs[1] = "\""+randomGenerateValue() + "\",";
             }
 //            else if(splitKeyPairs[1].contains("\"")){ //have other data
 //                if(splitKeyPairs[1].matches("\\d+")){ //money
